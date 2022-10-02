@@ -85,6 +85,7 @@ public class GameManager : MonoBehaviour
             else if (m_GameOver && m_Time < Time.unscaledTime)
             {
                 EndGame(false);
+                SoundManager.inst.RestartMusic();
                 StartGame();
             }
             else if (m_Paused)

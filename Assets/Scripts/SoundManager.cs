@@ -68,4 +68,23 @@ public class SoundManager : MonoBehaviour
     {
         ScoreSource.PlayOneShot(NoScoreClips[Random.Range(0, NoScoreClips.Length)]);
     }
+
+    [SerializeField] private AudioClip m_MusicIntro, m_MusicLoop;
+    [SerializeField] private AudioSource m_MusicSource;
+    public void Update()
+    {
+        if (!m_MusicSource.isPlaying)
+        {
+            m_MusicSource.clip = m_MusicLoop;
+            m_MusicSource.loop = true;
+            m_MusicSource.Play();
+        }
+    }
+
+    public void RestartMusic()
+    {
+        m_MusicSource.clip = m_MusicIntro;
+        m_MusicSource.loop = false;
+        m_MusicSource.Play();
+    }
 }

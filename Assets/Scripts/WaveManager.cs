@@ -63,6 +63,7 @@ public class WaveManager : MonoBehaviour
         if (m_WaveNumber > m_MaxWave)
         {
             GameManager.inst.EndGame(true);
+            return;
         }
 
         CanvasManager.inst.SetWaveCount(m_WaveNumber);
