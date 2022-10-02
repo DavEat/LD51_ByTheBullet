@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f076c25379ea31b41837e0486b5c1dbc, type: 3}
+  m_Name: EnemyWaveC3
+  m_EditorClassIdentifier: 
+  Composition:
+  - type: {fileID: 5210363589588458454, guid: c9163b5f7af04c74887af8bc3adeb360, type: 3}
+    position: {x: 10, y: 0, z: 0}
+  - type: {fileID: 5210363589588458454, guid: 4e5466bfce9f99c45977e71dfc19c078, type: 3}
+    position: {x: 8, y: 0, z: 0}
+  - type: {fileID: 5210363589588458454, guid: c9163b5f7af04c74887af8bc3adeb360, type: 3}
+    position: {x: 6, y: 0, z: 0}
+  - type: {fileID: 5210363589588458454, guid: c9163b5f7af04c74887af8bc3adeb360, type: 3}
+    position: {x: -6, y: 0, z: 0}
+  - type: {fileID: 5210363589588458454, guid: 4e5466bfce9f99c45977e71dfc19c078, type: 3}
+    position: {x: -8, y: 0, z: 0}
+  - type: {fileID: 5210363589588458454, guid: c9163b5f7af04c74887af8bc3adeb360, type: 3}
+    position: {x: -6, y: 0, z: 0}
