@@ -13,6 +13,8 @@ public class Bullet : MonoBehaviour
     [SerializeField] float m_LifeTime = 3;
     private float m_DeathTime;
 
+    [SerializeField] private GameObject m_DeathParticle;
+
     private const string ENEMY_TAG = "Enemy";
 
     void Start()
@@ -37,6 +39,9 @@ public class Bullet : MonoBehaviour
             {
                 hit.collider.GetComponent<Rigidbody>().AddForceAtPosition(m_Rigidbody.velocity, m_Transform.position, ForceMode.Impulse);
                 hit.collider.GetComponent<EnemyLife>().SetDamage(1);
+
+                GameObject g = Instantiate(m_DeathParticle, hit.point, Quaternion.identity);
+                Destroy(g, .5f);
 
                 gameObject.SetActive(false);
                 Destroy(gameObject);

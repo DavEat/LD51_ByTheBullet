@@ -117,3 +117,5 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   m_LifeTime: 3
+  m_DeathParticle: {fileID: 3803909913371195754, guid: 5702f9c882792b5419b7ef884898780e,
+    type: 3}

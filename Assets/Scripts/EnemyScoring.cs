@@ -18,7 +18,7 @@ public class EnemyScoring : MonoBehaviour
 
     private void CheckScoring()
     {
-        if (gameObject.activeSelf && transform.position.sqrMagnitude < GameManager.inst.ScoreRadius * GameManager.inst.ScoreRadius)
+        if (gameObject.activeSelf && transform.position.sqrMagnitude < GameManager.inst.ScoreRadiusSqr)
         {
             GameManager.inst.AddToScore(m_ScorePoints);
         }

@@ -18,6 +18,9 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] private float m_BulletSpeedToPlayerMul = .5f;
     [SerializeField] private float m_SpreadingDeg = 10;
 
+    [SerializeField] private AudioSource m_GunSourceA;
+    [SerializeField] private AudioSource m_GunSourceB;
+
     private void Start()
     {
         m_Rigidbody = GetComponent<Rigidbody>();
@@ -68,5 +71,7 @@ public class PlayerShoot : MonoBehaviour
         rb.velocity = vel;
 
         m_Rigidbody.AddForce(-vel * m_BulletSpeedToPlayerMul, ForceMode.Impulse);
+
+        SoundManager.inst.PlayFireGun(m_GunSourceA, m_GunSourceB);
     }
 }

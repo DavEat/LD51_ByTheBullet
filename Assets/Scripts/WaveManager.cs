@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class WaveManager : MonoBehaviour
@@ -17,8 +18,13 @@ public class WaveManager : MonoBehaviour
 
     [SerializeField] private EnemyInstruction[] m_Instructions;
 
-    private int m_waveCount = 1;
-    private int m_waveCountIncrease = 2;
+    private int m_WaveNumber = 1;
+    [SerializeField] private int m_UpdateRadiusAtWaveNumber = 4;
+    [SerializeField] private int m_MaxWave = 9;
+
+
+    private int m_WaveCount = 1;
+    private int m_WaveCountIncrease = 2;
     [SerializeField] private List<EnemyMovement> m_Enemies = new List<EnemyMovement>();
 
     private Vector3[] m_SpawnPoints = new Vector3[]
@@ -33,8 +39,39 @@ public class WaveManager : MonoBehaviour
         new Vector3(-15, 0, -15),
     };
 
+    public void StartGame()
+    {
+        m_WaveNumber = 0;
+        m_WaveCount = 1;
+        SpawnNewWave();
+
+        foreach (EnemyMovement enemy in m_Enemies.ToList())
+        {
+            if (enemy is null)
+                continue;
+
+            enemy.gameObject.SetActive(false);
+            Destroy(enemy.gameObject);
+        }
+        m_Enemies.Clear();
+    }
+
     public void SpawnNewWave()
     {
+        m_WaveNumber++;
+
+        if (m_WaveNumber > m_MaxWave)
+        {
+            GameManager.inst.EndGame(true);
+        }
+
+        CanvasManager.inst.SetWaveCount(m_WaveNumber);
+
+        if (m_WaveNumber >= m_UpdateRadiusAtWaveNumber)
+        {
+            GameManager.inst.UpdateRadius();
+        }
+
         SetGlobalInstruction(m_Instructions[Random.Range(0, m_Instructions.Length)]);
 
         //for (int i = 0; i < m_waveCount; i++)
@@ -44,13 +81,13 @@ public class WaveManager : MonoBehaviour
 
             EnemyWave.EnPos[] composition;
 
-            if (m_waveCount >= 8) // Level 2
+            if (m_WaveCount >= 8) // Level 2
             {
                 int indexWave = Random.Range(0, Level2Waves.Length);
                 composition = Level2Waves[indexWave].Composition;
 
             }
-            else if (m_waveCount >= 5) // Level 1
+            else if (m_WaveCount >= 5) // Level 1
             {
                 int indexWave = Random.Range(0, Level1Waves.Length);
                 composition = Level1Waves[indexWave].Composition;
@@ -71,7 +108,7 @@ public class WaveManager : MonoBehaviour
                 //em.AddInstruction();
             }
         }
-        m_waveCount += m_waveCountIncrease;
+        m_WaveCount += m_WaveCountIncrease;
     }
 
     public void SetGlobalInstruction(EnemyInstruction instruction)
