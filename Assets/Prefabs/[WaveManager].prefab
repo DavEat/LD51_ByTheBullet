@@ -44,3 +44,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52f8b0659c67ba34ca603a012260c1d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Level0Waves:
+  - {fileID: 11400000, guid: 62181fffeabe97043b0d241efc8893ce, type: 2}
+  - {fileID: 11400000, guid: 905cf9af1a8241643b383ffe4e3b060f, type: 2}
+  - {fileID: 11400000, guid: 888dfa34e372e914aa679076e64582fc, type: 2}
+  - {fileID: 11400000, guid: 382a90a19dafbd3459b24a23bf8f64f8, type: 2}
+  Level1Waves:
+  - {fileID: 11400000, guid: 6b42815aa2305f64db6d53ee4a7f0758, type: 2}
+  - {fileID: 11400000, guid: 2de2c4112a9f2164b84a2b6895f2807e, type: 2}
+  - {fileID: 11400000, guid: 5ace1cf5b1454234188b89aaa4120a07, type: 2}
+  - {fileID: 11400000, guid: 216b396e45fcf724a913de1518d35c61, type: 2}
+  Level2Waves:
+  - {fileID: 11400000, guid: 475c0b8c75f02b142bc7c3aa85a2e49c, type: 2}
+  - {fileID: 11400000, guid: a264b299f9c233745844825fc20b82ae, type: 2}
+  - {fileID: 11400000, guid: c970b5975e1355c4dbd5ecda17e87bec, type: 2}
+  - {fileID: 11400000, guid: a886fc7a605bf2a4eb1f2c9a756a6c53, type: 2}
+  m_Instructions:
+  - {fileID: 11400000, guid: 706f66c5fbad4de4abd9811783c42946, type: 2}
+  - {fileID: 11400000, guid: c90454cb0582d59478a79f7edfe0f697, type: 2}
+  - {fileID: 11400000, guid: 76322c19d2bb3ac4291586415e5626e2, type: 2}
+  - {fileID: 11400000, guid: 1870038d1b48cf84c857b2b66cb02f17, type: 2}
+  - {fileID: 11400000, guid: 8b67232791c0ed34688cc92a4dd14e12, type: 2}
+  - {fileID: 11400000, guid: f5b3825c87703ea408fd2106dd828768, type: 2}
+  - {fileID: 11400000, guid: 305d471f4aaafbc418ee7ac031926ec6, type: 2}
+  - {fileID: 11400000, guid: b3c37d34996ffd74f814fb1b5972968f, type: 2}
+  - {fileID: 11400000, guid: bdf0b2d105afb0d47a06cabe296b57f4, type: 2}
+  - {fileID: 11400000, guid: 75bc35410f24154439f8ee9193b72065, type: 2}
+  m_UpdateRadiusAtWaveNumber: 5
+  m_MaxWave: 9
+  m_Enemies: []
