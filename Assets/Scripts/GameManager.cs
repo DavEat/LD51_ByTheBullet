@@ -11,8 +11,17 @@ public class GameManager : MonoBehaviour
         inst = this;
     }
 
+    //---Player Movement Info---
     [SerializeField] private Transform m_PlayerTransform;
+    [SerializeField] private float m_PlayerRadius = 3;
+    [SerializeField] private float m_PlayerOffset = .5f;
+    public float m_DotPlayerLimit = -.2f;
     public Vector3 PlayerPosition => m_PlayerTransform.position;
+    private Vector3 m_PlayerPositionL0 => (Vector3.Cross(PlayerPosition, Vector3.up).normalized) * m_PlayerRadius;
+    private Vector3 m_PlayerPositionOffset => PlayerPosition.normalized * m_PlayerOffset;
+    public Vector3 PlayerPositionL1 => PlayerPosition + m_PlayerPositionL0 + m_PlayerPositionOffset;
+    public Vector3 PlayerPositionL2 => PlayerPosition - m_PlayerPositionL0 + m_PlayerPositionOffset;
+
 
     //---Score---
     [SerializeField] private float ScoreEveryXSec = 10;
@@ -27,6 +36,7 @@ public class GameManager : MonoBehaviour
     public Action TerminateEnemies;
     [SerializeField] private float RespawnPlayerAtY = -50;
     [SerializeField] private float m_PlayerRespawnHigh = 10;
+    private bool m_HalfWavePassed;
 
     //---Context---
     private bool m_MainMenu = true;
@@ -96,6 +106,15 @@ public class GameManager : MonoBehaviour
 
         if (!m_Paused)
         {
+            if (m_Time < Time.time + ScoreEveryXSec *.65f)
+            {
+                if (!m_HalfWavePassed)
+                {
+                    m_HalfWavePassed = true;
+                    WaveManager.inst.HalfWave();
+                }
+            }
+
             if (NeedToScore())
             {
                 if (CanScore())
@@ -128,6 +147,7 @@ public class GameManager : MonoBehaviour
     public void ResetTimer()
     {
         m_Time = Time.time + ScoreEveryXSec;
+        m_HalfWavePassed = false;
     }
 
     public bool CanScore()

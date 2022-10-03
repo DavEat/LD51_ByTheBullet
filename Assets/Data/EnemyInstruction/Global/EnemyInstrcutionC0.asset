@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: {x: 0, y: 0, z: 0}
   RotationAngleDeg: 45
-  SpeedMul: 1
+  SpeedMul: 2
   movementType: 1
   Relative: 1

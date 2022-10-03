@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -60,8 +61,8 @@ public class EnemyMovement : MonoBehaviour
         {
             Vector3 dir = m_CurrentInstruction.GetDirection(Position, m_InstructionTargetPos);
 
-            Debug.DrawRay(Position, dir, Color.red, 30);
-            Debug.DrawLine(Position, m_InstructionTargetPos, Color.green);
+            //Debug.DrawRay(Position, dir, Color.red, 30);
+            //Debug.DrawLine(Position, m_InstructionTargetPos, Color.green);
 
             //if (dir.sqrMagnitude < .1f)
             {
@@ -87,7 +88,22 @@ public class EnemyMovement : MonoBehaviour
 
     private void NoInstrcution()
     {
-        Vector3 dir = GameManager.inst.PlayerPosition - m_Transform.position;
+        Vector3 playerEn = (GameManager.inst.PlayerPosition - m_Transform.position).normalized;
+        float dotPlayer = Vector3.Dot(playerEn, GameManager.inst.PlayerPosition.normalized);
+
+        Vector3 target;
+
+        if (dotPlayer < GameManager.inst.m_DotPlayerLimit)
+        {
+            float crossDot = Vector3.Dot(playerEn, Vector3.Cross(GameManager.inst.PlayerPosition, Vector3.up).normalized);
+            target = crossDot > 0 ? GameManager.inst.PlayerPositionL2 : GameManager.inst.PlayerPositionL1;
+        }
+        else
+        {
+            target = GameManager.inst.PlayerPosition;
+        }
+
+        Vector3 dir = target - m_Transform.position;
         dir.y = 0;
 
         float acceleration = m_AccelerationMul;

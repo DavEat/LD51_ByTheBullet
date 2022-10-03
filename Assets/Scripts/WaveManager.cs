@@ -1,3 +1,4 @@
+using Mono.Cecil.Cil;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,9 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private EnemyWave[] Level1Waves;
     [SerializeField] private EnemyWave[] Level2Waves;
 
-    [SerializeField] private EnemyInstruction[] m_Instructions;
+    [SerializeField] private EnemyInstruction[] m_InstructionsA;
+    [SerializeField] private EnemyInstruction[] m_InstructionsB;
+    [SerializeField] private EnemyInstruction[] m_GlobalInstructions;
 
     private int m_WaveNumber = 1;
     [SerializeField] private int m_UpdateRadiusAtWaveNumber = 4;
@@ -56,6 +59,11 @@ public class WaveManager : MonoBehaviour
         m_Enemies.Clear();
     }
 
+    public void HalfWave()
+    {
+        SetGlobalInstruction(m_GlobalInstructions[Random.Range(0, m_GlobalInstructions.Length)]);
+    }
+
     public void SpawnNewWave()
     {
         m_WaveNumber++;
@@ -73,7 +81,7 @@ public class WaveManager : MonoBehaviour
             GameManager.inst.UpdateRadius();
         }
 
-        SetGlobalInstruction(m_Instructions[Random.Range(0, m_Instructions.Length)]);
+        //SetGlobalInstruction(m_GlobalInstructions[Random.Range(0, m_GlobalInstructions.Length)]);
 
         //for (int i = 0; i < m_waveCount; i++)
         {
@@ -100,13 +108,29 @@ public class WaveManager : MonoBehaviour
 
             }
 
+            int instructionCount = Random.Range(0, 4);
             for (int j = 0; j < composition.Length; j++)
             {
                 Vector3 startPos = spawnPoint + Vector3.up * .5f;
                 startPos += /*Quaternion.LookRotation(startPos, Vector3.up) **/ composition[j].position;
 
                 EnemyMovement em = Instantiate(composition[j].type, startPos, Quaternion.identity);
-                //em.AddInstruction();
+
+                if (instructionCount > 0)
+                {
+                    //em.AddInstruction(m_InstructionsA[Random.Range(0, m_InstructionsA.Length)], false);
+
+                    Vector3 dir = spawnPoint * -1;
+                    var instruction = new EnemyInstruction()
+                    {
+                        Target = dir,
+                        movementType = EnemyInstruction.MovementType.Straight,
+                        Relative = true
+                    };
+                    em.AddInstruction(instruction);
+                }
+                if (instructionCount > 2)
+                    em.AddInstruction(m_InstructionsB[Random.Range(0, m_InstructionsB.Length)], false);
             }
         }
         m_WaveCount += m_WaveCountIncrease;

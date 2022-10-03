@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8358934363035434662
 MonoBehaviour:
@@ -59,7 +59,17 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a264b299f9c233745844825fc20b82ae, type: 2}
   - {fileID: 11400000, guid: c970b5975e1355c4dbd5ecda17e87bec, type: 2}
   - {fileID: 11400000, guid: a886fc7a605bf2a4eb1f2c9a756a6c53, type: 2}
-  m_Instructions:
+  m_InstructionsA:
+  - {fileID: 11400000, guid: c02bb76c89a30f84094bc66d77ecf409, type: 2}
+  - {fileID: 11400000, guid: 69b0f799075d74749be3167a7e473248, type: 2}
+  - {fileID: 11400000, guid: 48c129c2f76613d48ad0e7d81a91df3f, type: 2}
+  - {fileID: 11400000, guid: f2a88969653e9a24a9f2503d5aa2b3e8, type: 2}
+  m_InstructionsB:
+  - {fileID: 11400000, guid: a08605c0a04ef10468c4fa2adc4cb8af, type: 2}
+  - {fileID: 11400000, guid: fdded2dc2ff7dd240aa7d8ccf26df688, type: 2}
+  - {fileID: 11400000, guid: 759348ceec17bbc4c83c68f07b1fbaee, type: 2}
+  - {fileID: 11400000, guid: 82d6608acb764f54cb7798f781381e3d, type: 2}
+  m_GlobalInstructions:
   - {fileID: 11400000, guid: 706f66c5fbad4de4abd9811783c42946, type: 2}
   - {fileID: 11400000, guid: c90454cb0582d59478a79f7edfe0f697, type: 2}
   - {fileID: 11400000, guid: 76322c19d2bb3ac4291586415e5626e2, type: 2}

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b64a74a94d51f034285abc4f65079ab4, type: 3}
-  m_Name: EnemyInstrcutionB2
+  m_Name: EnemyInstrcutionA3C
   m_EditorClassIdentifier: 
-  Target: {x: -5, y: 0, z: 5}
-  RotationAngleDeg: 0
-  SpeedMul: 2
-  movementType: 0
+  Target: {x: 10, y: 0, z: -10}
+  RotationAngleDeg: -90
+  SpeedMul: 1
+  movementType: 1
   Relative: 1

@@ -12,10 +12,11 @@ GameObject:
   - component: {fileID: 5210363589588458448}
   - component: {fileID: 5210363589588458449}
   - component: {fileID: 4584889270700601580}
+  - component: {fileID: 8069229829043344984}
+  - component: {fileID: 8466854580868273028}
   - component: {fileID: 5210363589588458451}
   - component: {fileID: 5210363589588458454}
   - component: {fileID: 94969092016401123}
-  - component: {fileID: 8069229829043344984}
   - component: {fileID: 6815630225921216931}
   m_Layer: 7
   m_Name: EnemyB
@@ -98,10 +99,36 @@ SphereCollider:
   m_GameObject: {fileID: 5210363589588458476}
   m_Material: {fileID: 13400000, guid: d1f81e3c3cceea741be54343f88995d6, type: 2}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &8069229829043344984
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5210363589588458476}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.6
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &8466854580868273028
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5210363589588458476}
+  m_Material: {fileID: 13400000, guid: d1f81e3c3cceea741be54343f88995d6, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.84, y: 0.35000002, z: 0.84}
+  m_Center: {x: 0, y: 0.024999999, z: 0}
 --- !u!54 &5210363589588458451
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -110,7 +137,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5210363589588458476}
   serializedVersion: 2
-  m_Mass: 1.5
+  m_Mass: 4.5
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
@@ -130,7 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2dcfba1face51841b5f377d685b2200, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AccelerationMul: 65
+  m_AccelerationMul: 195
   m_Decelation: 0.8
   m_Terminating: 0
   m_TerminatingSpeedMul: 3
@@ -150,19 +177,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ScorePoints: 2
---- !u!135 &8069229829043344984
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5210363589588458476}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.6
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6815630225921216931
 MonoBehaviour:
   m_ObjectHideFlags: 0

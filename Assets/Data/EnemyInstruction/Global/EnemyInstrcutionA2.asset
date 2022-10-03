@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b64a74a94d51f034285abc4f65079ab4, type: 3}
   m_Name: EnemyInstrcutionA2
   m_EditorClassIdentifier: 
-  Target: {x: 0, y: 0, z: 15}
+  Target: {x: 0, y: 0, z: 7}
   RotationAngleDeg: 0
-  SpeedMul: 1
+  SpeedMul: 2
   movementType: 0
   Relative: 1
